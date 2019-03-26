@@ -1,84 +1,91 @@
-" 行を表示
-set number
-set encoding=utf-8
-scriptencoding utf-8
-set ambiwidth=double " □や○文字が崩れる問題を解決
-set tabstop=3 "画面上でタブ文字が占める割合
-set cursorline "カーソルをハイライト
-set ruler "カーソルが何行目の何列目に置かれているかを表示する
-set showmatch "括弧の対応関係を一瞬表示する
-set wildmenu "コマンドの補完をする
-
-"クリップボードからのペーストのインデントを自動調節
-if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-endif
-
-"----------------------------------------------------------
-" ステータスラインの設定
-"----------------------------------------------------------
-set laststatus=2 " ステータスラインを常に表示
-set showmode " 現在のモードを表示
-set showcmd " 打ったコマンドをステータスラインの下に表示
-set ruler " ステータスラインの右側にカーソルの現在位置を表示する
-":NERTreeをcontroll-eで使用
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-set t_Co=256 " iTerm2など既に256色環境なら無くても良い
-syntax enable " 構文に色を付ける
-
-
 " ファイルタイプ別のVimプラグイン/インデントを有効にする
 filetype plugin indent on
 
-""""""""""""""""""""""""""
-" プラグイン管理dein.vim "
-""""""""""""""""""""""""""
-" プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = expand('~/.cache/dein')
-" dein.vim 本体
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" dein.vim がなければ github から落としてくる
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+if has('vim_starting')
+  set rtp+=~/.vim/plugged/vim-plug
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
 endif
 
-" 設定開始
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+call plug#begin('~/.vim/plugged')
+  " ツリー型エクスプローラ
+  Plug 'scrooloose/nerdtree'
 
-  " プラグインリストを収めた TOML ファイル
-  " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir    = expand('.vim/rc')
-  let s:toml      = g:rc_dir . '/dein.toml'
-" let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+  " タブバーのカスタマイズ
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-  " TOML を読み込み、キャッシュしておく
-  call dein#load_toml(s:toml,      {'lazy': 0})
-" call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " 設定終了
-  call dein#end()
-  call dein#save_state()
-endif
-
-" もし、未インストールものものがあったらインストール
-if dein#check_install()
-  call dein#install()
-endif
+  " CoffeeScript
+  Plug 'kchmck/vim-coffee-script'
+call plug#end()
 
 syntax on
-colorscheme molokai
+set encoding=utf-8
+set hlsearch
+set ignorecase
+set wrapscan
+set noswapfile
+set autoindent
+set number
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set cursorline
+set incsearch
+set wildmenu wildmode=list:full
+set clipboard=unnamed,autoselect
+set laststatus=2
+set statusline=%F%r%=
+set backspace=indent,eol,start
+set infercase
+set completeopt=menuone
+set scrolloff=3
+
+" 不可視ファイルを表示する
+let NERDTreeShowHidden = 1
+
+" カラースキーマ
+colorscheme Tomorrow-Night
+
+" 入力補完
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+	exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
+endfor
+
+" ----------------------------------------------------------------------------------------
+" キーバインド
+" ----------------------------------------------------------------------------------------
+
+" 検索ハイライトの打ち消し
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" エクスプローラの表示・非表
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" タブバーのカスタマイズを有効にする
+let g:airline#extensions#tabline#enabled = 1
+
+" タブバーの右領域を非表示にする
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_close_button = 0
+
+let g:airline_theme='deus'
+
+"タブ
+nnoremap tt :tabnew<Enter>
+nnoremap lt gT
+
+" 画面分割
+nnoremap ss :split<Enter>
+nnoremap sv :vsplit<Enter>
+
+" 画面移動
+nnoremap w<Left> <C-w>h
+nnoremap w<Down> <C-w>j
+nnoremap w<Up> <C-w>k
+nnoremap w<Right> <C-w>l
