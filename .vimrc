@@ -50,6 +50,9 @@ let NERDTreeShowHidden = 1
 
 " カラースキーマ
 colorscheme Tomorrow-Night
+"syntax enable
+"set background=dark
+"colorscheme material-theme
 
 " 入力補完
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
