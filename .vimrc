@@ -49,10 +49,9 @@ set scrolloff=3
 let NERDTreeShowHidden = 1
 
 " カラースキーマ
-colorscheme Tomorrow-Night
-"syntax enable
-"set background=dark
-"colorscheme material-theme
+"olorscheme Tomorrow-Night
+syntax enable
+colorscheme tender
 
 " 入力補完
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
