@@ -18,8 +18,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  " CoffeeScript
-  Plug 'kchmck/vim-coffee-script'
+  " プロジェクト内のメソッドやクラスの探索を一瞬にする
+  Plug 'alpaca-tc/alpaca_tags'
 call plug#end()
 
 syntax on
@@ -57,6 +57,17 @@ colorscheme Tomorrow-Night
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
 	exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
 endfor
+
+" tagのカスタマイズ
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    " 毎回保存と同時更新する場合はコメントを外す
+    " autocmd BufWritePost * TagsUpdate
+  endif
+augroup END
 
 " ----------------------------------------------------------------------------------------
 " キーバインド
