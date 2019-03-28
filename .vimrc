@@ -49,9 +49,9 @@ set scrolloff=3
 let NERDTreeShowHidden = 1
 
 " カラースキーマ
-"olorscheme Tomorrow-Night
-syntax enable
-colorscheme tender
+colorscheme Tomorrow-Night
+"syntax enable
+"colorscheme tender
 
 " 入力補完
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
@@ -87,7 +87,8 @@ nnoremap ss :split<Enter>
 nnoremap sv :vsplit<Enter>
 
 " 画面移動
-nnoremap w<Left> <C-w>h
-nnoremap w<Down> <C-w>j
-nnoremap w<Up> <C-w>k
-nnoremap w<Right> <C-w>l
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sw <C-w>l
