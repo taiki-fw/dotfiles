@@ -44,7 +44,7 @@ set backspace=indent,eol,start
 set infercase
 set completeopt=menuone
 set scrolloff=3
-
+set smartindent
 " 不可視ファイルを表示する
 let NERDTreeShowHidden = 1
 
