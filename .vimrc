@@ -17,6 +17,9 @@ call plug#begin('~/.vim/plugged')
   "erbのインデントを修正
   Plug 'othree/html5.vim'
 
+  "railsのendなどの補完
+  Plug 'tpope/vim-endwise'
+
   " タブバーのカスタマイズ
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
