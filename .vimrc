@@ -14,6 +14,9 @@ call plug#begin('~/.vim/plugged')
   " ツリー型エクスプローラ
   Plug 'scrooloose/nerdtree'
 
+  "erbのインデントを修正
+  Plug 'othree/html5.vim'
+
   " タブバーのカスタマイズ
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
