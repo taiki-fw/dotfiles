@@ -1,6 +1,14 @@
-# cd なしで移動する
-setopt auto_cd
-setopt auto_pushd
+# エイリアス
+alias stoppos='brew services stop postgres'
+alias startpos='brew services start postgres'
+alias startpy='source ~/pydataenv/bin/activate'
+alias stoppy="deactivate"
+
+export PATH=$HOME/.nodebrew/current/bin:/usr/local/opt/python@3.8/libexec/bin:~/.rbenv/shims:/usr/local/bin:/Users/taiki/.composer/vendor/bin:/usr/local/opt/mysql/bin:$PATH
+eval "$(rbenv init -)"
+
+export EDITOR=code
+eval "$(direnv hook zsh)"
 
 # 保管機能を強化
 autoload -U compinit
@@ -11,7 +19,7 @@ autoload -Uz colors
 colors
 
 #prompt コマンドの左側
-PROMPT='%K{white}%F{black}%W %T%f%k %F{cyan}%n%f:%F{yellow}%~%f'
+PROMPT='%F{cyan}%n%f:%F{yellow}%~%f'
 # バージョン管理システムから情報を自動的に取得する
 autoload -Uz vcs_info
 
@@ -36,7 +44,9 @@ zstyle ':vcs_info:*' actionformats "[%b|%a]"
 precmd(){ vcs_info }
 
 # コマンドの左側
-PROMPT=$PROMPT'${vcs_info_msg_0_} %% '
+PROMPT=$PROMPT'${vcs_info_msg_0_}
+%(?:😶 %F{green}→%f :🙃🙃🙃 %F{red}→%f )%{$fg_bold[green]%}'
 
-#重複したコマンドを記録しない
-setopt hist_ignore_dups
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+
