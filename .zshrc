@@ -45,4 +45,7 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
 setopt hist_ignore_all_dups
 
+# uname ... OS名を表示
+# - Mac ... Darwin
+[ -f .zshrc_`uname` ] && . .zshrc_`uname`
 [ -f .zshrc_local ] && . .zshrc_local
