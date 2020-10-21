@@ -3,12 +3,7 @@ alias stoppos='brew services stop postgres'
 alias startpos='brew services start postgres'
 alias startpy='source ~/pydataenv/bin/activate'
 alias stoppy="deactivate"
-
-export PATH=$HOME/.nodebrew/current/bin:/usr/local/opt/python@3.8/libexec/bin:~/.rbenv/shims:/usr/local/bin:/Users/taiki/.composer/vendor/bin:/usr/local/opt/mysql/bin:$PATH
-eval "$(rbenv init -)"
-
 export EDITOR=code
-eval "$(direnv hook zsh)"
 
 # 保管機能を強化
 autoload -U compinit
@@ -50,3 +45,4 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
 setopt hist_ignore_all_dups
 
+[ -f .zshrc_local ] && . .zshrc_local
