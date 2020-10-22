@@ -47,5 +47,5 @@ setopt hist_ignore_all_dups
 
 # uname ... OS名を表示
 # - Mac ... Darwin
-[ -f ~/.zshrc_`uname` ] && . ~/.zshrc_`uname`
-[ -f ~/.zshrc_local ] && . ~/.zshrc_local
+[ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
+[ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
