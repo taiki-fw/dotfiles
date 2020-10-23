@@ -1,8 +1,6 @@
 # エイリアス
 alias stoppos='brew services stop postgres'
 alias startpos='brew services start postgres'
-alias startpy='source ~/pydataenv/bin/activate'
-alias stoppy="deactivate"
 export EDITOR=code
 
 # 保管機能を強化
