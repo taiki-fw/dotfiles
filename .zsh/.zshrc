@@ -1,6 +1,10 @@
 # エイリアス
-alias stoppos='brew services stop postgres'
-alias startpos='brew services start postgres'
+alias ls='ls -F'
+alias la='ls -a'
+alias ll='ls -l'
+
+alias mkdir='mkdir -p'
+
 export EDITOR=code
 
 # 保管機能を強化
