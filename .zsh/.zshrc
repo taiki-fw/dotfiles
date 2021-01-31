@@ -16,7 +16,8 @@ autoload -Uz colors
 colors
 
 #prompt コマンドの左側
-PROMPT='%F{cyan}%n%f:%F{yellow}%~%f'
+PROMPT='
+%F{cyan}%n%f:%F{yellow}%~%f'
 # バージョン管理システムから情報を自動的に取得する
 autoload -Uz vcs_info
 
