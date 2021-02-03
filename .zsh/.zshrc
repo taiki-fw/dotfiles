@@ -11,6 +11,13 @@ export EDITOR=code
 autoload -U compinit
 compinit
 
+# 同時に起動しているzsh間でhistoryを共有する
+setopt share_history
+# 同じコマンドをhistoryに残さない
+setopt hist_ignore_all_dups
+# コマンドのスペルミスを指摘
+setopt correct
+
 # 色を付けられる
 autoload -Uz colors
 colors
@@ -44,9 +51,6 @@ precmd(){ vcs_info }
 # コマンドの左側
 PROMPT=$PROMPT'${vcs_info_msg_0_}
 %(?:😶 %F{green}→%f :🙃🙃🙃 %F{red}→%f )%{$fg_bold[green]%}'
-
-# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
-setopt hist_ignore_all_dups
 
 # uname ... OS名を表示
 # - Mac ... Darwin
