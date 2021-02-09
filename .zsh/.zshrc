@@ -50,7 +50,7 @@ precmd(){ vcs_info }
 
 # コマンドの左側
 PROMPT=$PROMPT'${vcs_info_msg_0_}
-%(?:😶 %F{green}→%f :🙃🙃🙃 %F{red}→%f )%{$fg_bold[green]%}'
+%F{green}>%f '
 
 # uname ... OS名を表示
 # - Mac ... Darwin
