@@ -1,3 +1,6 @@
+# brew install direnv
+eval "$(direnv hook zsh)"
+
 # エイリアス
 alias ls='ls -F'
 alias la='ls -a'
