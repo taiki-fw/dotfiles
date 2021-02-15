@@ -5,7 +5,6 @@ alias ll='ls -l'
 
 alias mkdir='mkdir -p'
 
-export EDITOR=code
 
 # 保管機能を強化
 autoload -U compinit
