@@ -12,8 +12,6 @@ alias mkdir='mkdir -p'
 # 保管機能を強化
 autoload -U compinit
 compinit
-# brew install zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # 同時に起動しているzsh間でhistoryを共有する
 setopt share_history
