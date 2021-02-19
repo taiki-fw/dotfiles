@@ -1,13 +1,5 @@
 # dotfiles
 
-## shellFiles
+## How to install
 
-- .zshrc
-
-## vim(CUI-editor)
-
-- .vimrc
-
-## symbolic
-
-- dotfiles.sh
+curl https://github.com/taiki-fw/dotfiles/blob/main/install.sh | bash
