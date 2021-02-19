@@ -2,4 +2,4 @@
 
 ## How to install
 
-curl https://github.com/taiki-fw/dotfiles/blob/main/install.sh | bash
+curl https://raw.githubusercontent.com/taiki-fw/dotfiles/main/install.sh | bash
