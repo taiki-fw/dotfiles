@@ -49,7 +49,13 @@ precmd(){ vcs_info }
 PROMPT=$PROMPT'${vcs_info_msg_0_}
 %F{green}>%f '
 
+
+# OS依存zshファイルの読み込み
 # uname ... OS名を表示
 # - Mac ... Darwin
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
+
+
+# brew install direnv
+eval "$(direnv hook zsh)"
