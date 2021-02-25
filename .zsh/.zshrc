@@ -1,13 +1,8 @@
-# brew install direnv
-eval "$(direnv hook zsh)"
-
 # エイリアス
 alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
-
 alias mkdir='mkdir -p'
-
 
 # 保管機能を強化
 autoload -U compinit

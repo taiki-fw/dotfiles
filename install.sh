@@ -15,5 +15,4 @@ for f in .??*; do
   [ "$f" = ".git" ] && continue
 
   ln -sf ${PWD}/"$f" ~/
-
 done
