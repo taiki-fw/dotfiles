@@ -9,6 +9,8 @@ if [ ! -d "dotfiles" ];then
   git clone https://github.com/taiki-fw/dotfiles.git
 fi
 
+sh $ZDOTDIR/plugins/install.sh
+
 cd dotfiles
 # dotfilesのシンボリックをrootに張る
 for f in .??*; do
