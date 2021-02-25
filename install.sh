@@ -15,6 +15,7 @@ cd dotfiles
 # dotfilesのシンボリックをrootに張る
 for f in .??*; do
   [ "$f" = ".git" ] && continue
+  [ "$f" = ".gitignore" ] && continue
 
   ln -sf ${PWD}/"$f" ~/
 done
