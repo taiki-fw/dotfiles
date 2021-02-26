@@ -8,6 +8,14 @@ alias mkdir='mkdir -p'
 autoload -U compinit
 compinit
 
+# 履歴ファイルの保存先
+export HISTFILE=${ZDOTDIR}/.zsh_history
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
 # 同時に起動しているzsh間でhistoryを共有する
 setopt share_history
 # 同じコマンドをhistoryに残さない
