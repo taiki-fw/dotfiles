@@ -15,7 +15,7 @@ fi
 
 sh $CURRENTDIR/.zsh/plugins/install.sh
 
-cd dotfiles
+cd ~/$(dirname $0)
 # dotfilesのシンボリックをrootに張る
 for f in .??*; do
   [ "$f" = ".git" ] && continue
