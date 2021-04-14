@@ -3,15 +3,17 @@
 # 未定義な変数があるとき途中で終了する
 set -u
 
+ZSHDIR=$(dirname $0)/.zsh
+CURRENTDIR=$(cd $(dirname $0); pwd)
+
 if [ ! -d "dotfiles" ];then
   echo "fetch dotfiles from github"
 
   git clone https://github.com/taiki-fw/dotfiles.git
 fi
 
-ZSHDIR=$(dirname $0)/.zsh
 
-sh $ZSHDIR/plugins/install.sh
+sh $CURRENTDIR/.zsh/plugins/install.sh
 
 cd dotfiles
 # dotfilesのシンボリックをrootに張る
