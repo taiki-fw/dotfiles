@@ -26,6 +26,9 @@ call plug#begin('~/.vim/plugged')
 
   " プロジェクト内のメソッドやクラスの探索を一瞬にする
   Plug 'alpaca-tc/alpaca_tags'
+
+  " colorscheme
+  Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 syntax on
@@ -55,9 +58,15 @@ set smartindent
 let NERDTreeShowHidden = 1
 
 " カラースキーマ
-colorscheme Tomorrow-Night
-"syntax enable
-"colorscheme tender
+set background=dark
+colorscheme palenight
+let g:lightline = { 'colorscheme': 'palenight' }
+let g:airline_theme = "palenight"
+if (has("termguicolors"))
+  set termguicolors
+endif
+" Italics for my favorite color scheme
+let g:palenight_terminal_italics=1
 
 " 入力補完
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
