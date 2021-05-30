@@ -1,3 +1,5 @@
+" :PlugInstall
+
 " ファイルタイプ別のVimプラグイン/インデントを有効にする
 filetype plugin indent on
 
