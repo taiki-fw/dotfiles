@@ -64,6 +64,3 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 [ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
 
 . $ZDOTDIR/plugins/.zsh_plugins
-
-# brew install direnv
-eval "$(direnv hook zsh)"
