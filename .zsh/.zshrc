@@ -28,7 +28,7 @@ autoload -Uz colors
 colors
 
 #prompt コマンドの左側
-PROMPT='%F{yellow}%~%f'
+PROMPT='%F{cyan}%~%f'
 # バージョン管理システムから情報を自動的に取得する
 autoload -Uz vcs_info
 
@@ -40,20 +40,20 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 
 # commit されていないファイルがある
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' stagedstr "%F{red}[+]"
 
 # add　されていないファイルがある
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}[?]"
 
 # 通常
-zstyle ':vcs_info:*' formats "%F{green} [%b] %c%u%f"
+zstyle ':vcs_info:*' formats "%F{magenta} %b %c%u%f"
 zstyle ':vcs_info:*' actionformats "[%b|%a]"
 
 # 上記で設定したvsc_infoを呼びだす
 precmd(){ vcs_info }
 
 # コマンドの左側
-PROMPT=$PROMPT'${vcs_info_msg_0_}
+PROMPT=$PROMPT' on${vcs_info_msg_0_}
 %F{green}>%f '
 
 
