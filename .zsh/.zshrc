@@ -46,14 +46,14 @@ zstyle ':vcs_info:git:*' stagedstr "%F{red}[+]"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}[?]"
 
 # 通常
-zstyle ':vcs_info:*' formats "%F{magenta} %b %c%u%f"
+zstyle ':vcs_info:*' formats " on%F{magenta} %b %c%u%f"
 zstyle ':vcs_info:*' actionformats "[%b|%a]"
 
 # 上記で設定したvsc_infoを呼びだす
 precmd(){ vcs_info }
 
 # コマンドの左側
-PROMPT=$PROMPT' on${vcs_info_msg_0_}
+PROMPT=$PROMPT'${vcs_info_msg_0_}
 %F{green}>%f '
 
 
