@@ -5,8 +5,7 @@ alias ll='ls -l'
 alias mkdir='mkdir -p'
 
 # 保管機能を強化
-autoload -U compinit
-compinit
+autoload -Uz compinit && compinit
 
 # 履歴ファイルの保存先
 export HISTFILE=${ZDOTDIR}/.zsh_history
