@@ -20,6 +20,8 @@ export HISTFILE=${ZDOTDIR}/.zsh_history
 export HISTSIZE=1000
 # 履歴ファイルに保存される履歴の件数
 export SAVEHIST=100000
+# 単語として判定する記号
+export WORDCHARS="*?.[]~&;=!#$%^(){}<>"
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 # 同時に起動しているzsh間でhistoryを共有する
@@ -27,6 +29,7 @@ setopt share_history
 # 同じコマンドをhistoryに残さない
 setopt hist_ignore_all_dups
 # コマンドのスペルミスを指摘
+# setopt correct
 setopt no_beep
 
 # 色を付けられる
