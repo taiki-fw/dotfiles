@@ -1,8 +1,15 @@
+fetch_switch () {
+  git fetch origin $1
+  git switch $1
+}
+
 # エイリアス
 alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias mkdir='mkdir -p'
+
+alias gsw=fetch_switch
 
 # 保管機能を強化
 autoload -Uz compinit && compinit
