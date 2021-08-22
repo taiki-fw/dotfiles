@@ -20,7 +20,7 @@ setopt share_history
 # 同じコマンドをhistoryに残さない
 setopt hist_ignore_all_dups
 # コマンドのスペルミスを指摘
-setopt correct
+setopt no_beep
 
 # 色を付けられる
 autoload -Uz colors
