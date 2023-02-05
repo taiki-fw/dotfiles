@@ -3,6 +3,20 @@ fetch_switch () {
   git switch $1
 }
 
+branch() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git switch $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+stash() {
+  local stash
+  stashes=$(git stash list) &&
+  stash=$(echo "$stashes" | fzf -m) &&
+  git stash pop $(echo "$stash" | awk '{print $1}' | sed "s/://")
+}
+
 # エイリアス
 alias ls='ls -F'
 alias la='ls -a'
@@ -74,3 +88,5 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 [ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
 
 . $ZDOTDIR/plugins/.zsh_plugins
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
