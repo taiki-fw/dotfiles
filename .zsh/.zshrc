@@ -24,6 +24,7 @@ alias ll='ls -l'
 alias mkdir='mkdir -p'
 
 alias gsw=fetch_switch
+alias awsp='export AWS_PROFILE=$(aws configure list-profiles | sed "/default/d" | sort | fzf)'
 
 # 保管機能を強化
 autoload -Uz compinit && compinit -u
