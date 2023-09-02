@@ -39,6 +39,8 @@ zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAU
 # マッチ種別を別々に表示
 zstyle ':completion:*' group-name ''
 
+# fzf 表示位置の設定
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 
 # 履歴ファイルの保存先
 export HISTFILE=${ZDOTDIR}/.zsh_history
