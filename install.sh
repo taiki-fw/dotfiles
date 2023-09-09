@@ -1,25 +1,19 @@
 #!/bin/sh
 
-# 未定義な変数があるとき途中で終了する
-set -u
-
-ZSHDIR=$(dirname $0)/.zsh
-CURRENTDIR=$(cd $(dirname $0); pwd)
-
 if [ ! -d "dotfiles" ];then
   echo "fetch dotfiles from github"
 
   git clone https://github.com/taiki-fw/dotfiles.git
 fi
 
-
-sh $CURRENTDIR/.zsh/plugins/install.sh
-
 cd ~/$(dirname $0)
-# dotfilesのシンボリックをrootに張る
-for f in .??*; do
-  [ "$f" = ".git" ] && continue
-  [ "$f" = ".gitignore" ] && continue
 
-  ln -sf ${PWD}/"$f" ~/
-done
+# zsh
+ln -sf ${PWD}/.zshenv ${HOME}/.zshenv
+mkdir -p ${HOME}/.zsh
+ln -sf ${PWD}/.zsh/.zshenv ${HOME}/.zsh/.zshenv
+ln -sf ${PWD}/.zsh/.zshrc ${HOME}/.zsh/.zshrc
+ln -sf ${PWD}/.zsh/.zprofile ${HOME}/.zsh/.zprofile
+
+## zsh plugin
+sh ${PWD}/.zsh/plugins/install.sh
