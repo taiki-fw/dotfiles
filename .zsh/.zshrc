@@ -100,7 +100,7 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 # uname ... OS名を表示
 # - Mac ... Darwin
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
-[ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
+[ -f ${HOME}/.zsh/.zshrc.local ] && source ${HOME}/.zsh/.zshrc.local
 
 source ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 

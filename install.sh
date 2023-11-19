@@ -14,6 +14,7 @@ mkdir -p ${HOME}/.zsh
 ln -sf ${PWD}/.zsh/.zshenv ${HOME}/.zsh/.zshenv
 ln -sf ${PWD}/.zsh/.zshrc ${HOME}/.zsh/.zshrc
 ln -sf ${PWD}/.zsh/.zprofile ${HOME}/.zsh/.zprofile
+[ ! -e ${HOME}/.zsh/.zshrc.local ] && ln -sf ${PWD}/.zsh/.zshrc.local ${HOME}/.zsh/.zshrc.local
 
 ## zsh plugin
 sh ${PWD}/.zsh/plugins/install.sh

@@ -1,7 +1,7 @@
 .DS_Store
 
 # zsh
-.zshrc_local
+.zshrc.local
 .zcompdump
 .zcompcache
 .zsh_history
