@@ -99,7 +99,7 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 # OS依存zshファイルの読み込み
 # uname ... OS名を表示
 # - Mac ... Darwin
-[ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
+[ -f $ZDOTDIR/.zshrc_`uname` ] && source $ZDOTDIR/.zshrc_`uname`
 [ -f ${HOME}/.zsh/.zshrc.local ] && source ${HOME}/.zsh/.zshrc.local
 
 source ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
