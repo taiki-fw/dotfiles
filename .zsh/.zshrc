@@ -1,3 +1,10 @@
+function repo() {
+  local src=$(ghq list | fzf --preview "")
+  if [ -n "$src" ]; then
+    cd "$(ghq root)/$src"
+  fi
+}
+
 fetch_switch () {
   git fetch origin $1
   git switch $1
@@ -104,4 +111,4 @@ PROMPT=$PROMPT'${vcs_info_msg_0_}
 
 source ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zshexport PATH=$PATH:/Users/taiki/.local/state/fnm_multishells/2453_1742493397137/bin/node
